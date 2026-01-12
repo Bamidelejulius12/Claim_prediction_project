@@ -19,35 +19,35 @@ FEATURES = [
 TARGET = "Ultimate_Claim_Amount"
 
 
-# # Function to load model and feature columns
-# def load_model():
-#     with open(MODEL_PATH, "rb") as f:
-#         model = joblib.load(MODEL_PATH)
-#     with open(FEATURES_PATH, "rb") as f:
-#         feature_columns = joblib.load(f)
-#     return model, feature_columns
-
-REPO_ID = "Julius911/FNOL_Model"
-MODEL_FILENAME = "best_model.pkl"
-FEATURES_FILENAME = "feature_columns.pkl"
-
+# Function to load model and feature columns
 def load_model():
-    # Download model and feature columns from Hugging Face
-    model_path = hf_hub_download(
-        repo_id=REPO_ID,
-        filename=MODEL_FILENAME
-    )
-    
-    features_path = hf_hub_download(
-        repo_id=REPO_ID,
-        filename=FEATURES_FILENAME
-    )
-    
-    # Load artifacts
-    model = joblib.load(model_path)
-    feature_columns = joblib.load(features_path)
-    
+    with open(MODEL_PATH, "rb") as f:
+        model = joblib.load(MODEL_PATH)
+    with open(FEATURES_PATH, "rb") as f:
+        feature_columns = joblib.load(f)
     return model, feature_columns
+
+# REPO_ID = "Julius911/ultimate_claim_cost_model"
+# MODEL_FILENAME = "best_model.pkl"
+# FEATURES_FILENAME = "feature_columns.pkl"
+
+# def load_model():
+#     # Download model and feature columns from Hugging Face
+#     model_path = hf_hub_download(
+#         repo_id=REPO_ID,
+#         filename=MODEL_FILENAME
+#     )
+    
+#     features_path = hf_hub_download(
+#         repo_id=REPO_ID,
+#         filename=FEATURES_FILENAME
+#     )
+    
+#     # Load artifacts
+#     model = joblib.load(model_path)
+#     feature_columns = joblib.load(features_path)
+    
+#     return model, feature_columns
 
 
 def save_model(model, versioned=False):
